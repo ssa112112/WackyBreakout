@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ball
+  - Paddle
+  - StandardBlock
+  - GameManager
+  - HUG
+  - Block
+  - BallsLeftText
+  - ScoreText
+  - GameOverObject
+  - GameOverText
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Background
+  - Balls
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 222292617
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Main
+    uniqueID: 1105575567
+    locked: 0
