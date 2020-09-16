@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -230,7 +230,7 @@ public class ConfigurationData : MonoBehaviour
             // Get file of settings
             var fullSettingsFille = webRequest.downloadHandler.text;
             // Set settings
-            SetConfigurationDataFields(fullSettingsFille.Substring(fullSettingsFille.IndexOf("\r\n") + 2));
+            SetConfigurationDataFields(fullSettingsFille.Substring(fullSettingsFille.IndexOf("\n") + 1));
             Debug.Log("Load settings success done");
         }
     }
