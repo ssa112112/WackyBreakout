@@ -27,9 +27,6 @@ public class EndGameWaiter : MonoBehaviour
 
     void HandlerLastBallLost()
     {
-        //Set flag
-        won = false;
-        //And Game Over
         GameOver(win: false);
     }
 
@@ -59,7 +56,7 @@ public class EndGameWaiter : MonoBehaviour
     }
 
     /// <summary>
-    /// True if player won
+    /// True if the player won
     /// </summary>
     /// <returns></returns>
     public static bool IsWon()
@@ -68,7 +65,7 @@ public class EndGameWaiter : MonoBehaviour
     }
 
     /// <summary>
-    /// True if player won
+    /// True if the game is over
     /// </summary>
     /// <returns></returns>
     public static bool IsGameOver()

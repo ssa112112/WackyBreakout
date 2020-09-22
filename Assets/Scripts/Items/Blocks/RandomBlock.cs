@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Generate random block instead itself
@@ -37,7 +35,7 @@ public class RandomBlock : MonoBehaviour
         var randomNumber = Random.Range(0, sumOfProbabilities);
 
         //Define randomPrefab
-        //It's shortest algorithm
+        //It's the shortest algorithm
         if (randomNumber < ConfigurationUtils.BonusBlockProbability)
             randomPrefab = bonusBlockPrefab;
         else if (randomNumber < ConfigurationUtils.FreezertBlockProbability + ConfigurationUtils.BonusBlockProbability)

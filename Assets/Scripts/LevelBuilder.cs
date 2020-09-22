@@ -30,6 +30,9 @@ public class LevelBuilder : MonoBehaviour
         CreateBlocks();
     }
 
+    /// <summary>
+    /// Need to do it before create blocks
+    /// </summary>
     private void SaveShapeOfBlock()
     {
         var tempBlock = Instantiate(BlockPrefab);

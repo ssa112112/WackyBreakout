@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BonusBlock : Block
 {
-    //AnimationSpeed
-    const float animationSpeed = 0.004f;
+    //AnimationSpeed 
+    const float animationSpeed = 0.015f;
 
     protected override void Start()
     {
@@ -17,12 +15,12 @@ public class BonusBlock : Block
     protected override void SetColor()
     {
         GetComponent<SpriteRenderer>().color = Color.yellow;
-        StartCoroutine(ColorAnimation());
+        StartCoroutine(ColorAnimation(animationSpeed));
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.CompareTag("Ball"))
         {
             AudioManager.Play(AudioName.BonusReceived);
         }

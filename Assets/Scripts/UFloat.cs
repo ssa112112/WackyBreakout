@@ -1,6 +1,6 @@
 ﻿/// <summary>
 /// Like float, but always positive
-/// If something try to do it is negative, it will become 0
+/// If something try to do it negative, it will become 0
 /// </summary>
 public struct UFloat
 {
@@ -69,7 +69,7 @@ public struct UFloat
 
     public override bool Equals(object a)
     {
-        return !(a is UFloat) ? false : this == (UFloat)a;
+        return a is UFloat @aLikeFloat && this == @aLikeFloat;
     }
 
     #endregion

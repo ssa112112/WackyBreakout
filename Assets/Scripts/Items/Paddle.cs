@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+﻿using UnityEngine;
 
 /// <summary>
 /// A Paddle
@@ -10,7 +6,6 @@ using UnityEngine.Experimental.UIElements;
 public class Paddle : MonoBehaviour
 {
     Rigidbody2D rb2d;
-
 
     //Support with move
     float frozenPositionY;
@@ -46,9 +41,11 @@ public class Paddle : MonoBehaviour
             if (input != 0)
             {
                 //Calculate new position
-                var targetPosition = new Vector2();
-                targetPosition.x = rb2d.position.x + (input * ConfigurationUtils.PaddleMoveUnitsPerSecond * Time.fixedUnscaledDeltaTime);
-                targetPosition.y = frozenPositionY;
+                var targetPosition = new Vector2
+                {
+                    x = rb2d.position.x + (input * ConfigurationUtils.PaddleMoveUnitsPerSecond * Time.fixedUnscaledDeltaTime),
+                    y = frozenPositionY
+                };
                 //Apply new position
                 rb2d.MovePosition(targetPosition);
             }

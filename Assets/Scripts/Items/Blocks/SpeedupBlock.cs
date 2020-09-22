@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class SpeedupBlock : Block
@@ -11,7 +9,7 @@ public class SpeedupBlock : Block
     float speedupEffectForce;
 
     //AnimationSpeed
-    const float animationSpeed = 0.008f;
+    const float animationSpeed = 0.016f;
 
     protected override void Start()
     {
@@ -28,13 +26,13 @@ public class SpeedupBlock : Block
     protected override void SetColor()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        StartCoroutine(ColorAnimation());
+        StartCoroutine(ColorAnimation(animationSpeed));
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         //Run effect
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.CompareTag("Ball"))
         {
             speedupEffectActivatedEvent.Invoke(speedupEffectDuration, speedupEffectForce);
             AudioManager.Play(AudioName.EffectSpeedupActivated);

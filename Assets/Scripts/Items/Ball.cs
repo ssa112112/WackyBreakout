@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 
@@ -62,7 +60,7 @@ public class Ball : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //It's a border?
-        if (collision.gameObject.tag == "MainCamera")
+        if (collision.gameObject.CompareTag("MainCamera"))
         {
             //Add horizontal force
             if (collision.contacts[0].point.x > 0)

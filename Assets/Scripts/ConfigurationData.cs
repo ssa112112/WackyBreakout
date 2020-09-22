@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.Networking;
 using System.Globalization;
 
+//For future: think about using ScriptableObject 
 /// <summary>
 /// A container for the configuration data
 /// </summary>
@@ -20,9 +21,7 @@ public class ConfigurationData : MonoBehaviour
 
         try
         {
-            //Game pause, until download
-            Time.timeScale = 0;
-            //And load setting
+            //Load setting
             StartCoroutine(LoadSettings(Path.Combine(Application.streamingAssetsPath, ConfigurationDataFileName)));
         }
         catch (Exception e)
@@ -30,11 +29,6 @@ public class ConfigurationData : MonoBehaviour
             //Say, if error
             Debug.Log("Load settings isn't done");
             Debug.Log(e.Message);
-        }
-        finally
-        {
-            //Always start game
-            Time.timeScale = 1;
         }
     }
 
@@ -69,19 +63,11 @@ public class ConfigurationData : MonoBehaviour
 
     #region Properties
 
-    /// <summary>
-    /// Gets the paddle move units per second
-    /// </summary>
-    /// <value>paddle move units per second</value>
     public float PaddleMoveUnitsPerSecond
     {
         get { return paddleMoveUnitsPerSecond; }
     }
 
-    /// <summary>
-    /// Gets the impulse force to apply to move the ball
-    /// </summary>
-    /// <value>impulse force</value>
     public float BallImpulseForce
     {
         get { return ballImpulseForce; }    

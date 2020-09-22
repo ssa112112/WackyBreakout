@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class Block : MonoBehaviour
 {
@@ -21,7 +19,7 @@ public abstract class Block : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.CompareTag("Ball"))
         {
             blockDestroyed.Invoke();
             addPointsEvent.Invoke(scorePoints);
@@ -33,12 +31,11 @@ public abstract class Block : MonoBehaviour
     /// <summary>
     /// Change color.g component up and down
     /// </summary>
-    protected IEnumerator ColorAnimation()
+    protected IEnumerator ColorAnimation(float animationSpeed)
     {
         //Set const
-        const float animationSpeed = 0.015f;
         const float animationProcent = 0.2f;
-        //Get needly thing
+        //Get needly things
         var spriteRednder = GetComponent<SpriteRenderer>();
         Color currentColor;
         currentColor = spriteRednder.color;
@@ -63,5 +60,13 @@ public abstract class Block : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    /// <summary>
+    /// Change color.g component up and down with standart speed
+    /// </summary>
+    protected IEnumerator ColorAnimation()
+    {
+        return ColorAnimation(animationSpeed: 0.015f);
     }
 }

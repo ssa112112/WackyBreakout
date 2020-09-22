@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class FreezerBlock : Block
@@ -10,7 +8,7 @@ public class FreezerBlock : Block
     FreezerEffectActivated freezerEffectActivatedEvent = new FreezerEffectActivated();
 
     //AnimationSpeed
-    const float animationSpeed = 0.009f;
+    const float animationSpeed = 0.017f;
 
     protected override void Start()
     {
@@ -26,12 +24,12 @@ public class FreezerBlock : Block
     protected override void SetColor()
     {
         GetComponent<SpriteRenderer>().color = Color.cyan;
-        StartCoroutine(ColorAnimation());
+        StartCoroutine(ColorAnimation(animationSpeed));
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.CompareTag("Ball"))
         {
             freezerEffectActivatedEvent.Invoke(freezerEffectDuration);
             AudioManager.Play(AudioName.EffectFreezerActivated);

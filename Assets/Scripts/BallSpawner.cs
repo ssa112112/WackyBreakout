@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
@@ -49,7 +48,7 @@ public class BallSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawn the ball right now, if it possible
+    /// Spawn the ball right now, if it's possible
     /// </summary>
     public void SpawnBall()
     {
@@ -95,6 +94,6 @@ public class BallSpawner : MonoBehaviour
     /// <returns></returns>
     private bool IsSpawnLocationFree()
     {
-        return Physics2D.OverlapArea(spawnLocationMin, spawnLocationMax) ? false : true;
+        return !Physics2D.OverlapArea(spawnLocationMin, spawnLocationMax);
     }
 }

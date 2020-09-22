@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     //Info anout initialize status
     static bool initialized = false;
 
-    //Support with play aydios
+    //Support with play audios
     static AudioSource audioSource;
     static Dictionary<AudioName,AudioClip> audioClips = new Dictionary<AudioName, AudioClip>();
     static string nameOfFolderWithAudio = "Audio";
