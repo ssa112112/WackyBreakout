@@ -16,10 +16,13 @@ public class MenuManager : MonoBehaviour
         switch (name)
         {
             case MenuName.GearGamesLevel:
+                StartGame(isGearLevel: true);
                 break;
             case MenuName.Play:
-                Time.timeScale = 1;
-                SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+                StartGame(isGearLevel: false);
+                break;
+            case MenuName.Restart:
+                StartGame();
                 break;
             case MenuName.Help:
                 SceneManager.LoadScene("HelpMenu", LoadSceneMode.Single);
@@ -37,6 +40,22 @@ public class MenuManager : MonoBehaviour
                 SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
                 break;
         } 
+    }
+
+    /// <summary>
+    /// Doesn't change the parameter "isGearLevel"
+    /// </summary>
+    private void StartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+    }
+
+    private void StartGame(bool isGearLevel)
+    {
+        LevelBuilder.IsGearLevel = isGearLevel;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
 
     public void Exit()
@@ -58,5 +77,9 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
         GoToMenu(MenuName.MainMenu);
+    }
+    public void Restart()
+    {
+        GoToMenu(MenuName.Restart);
     }
 }

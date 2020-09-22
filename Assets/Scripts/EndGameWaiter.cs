@@ -65,6 +65,15 @@ public class EndGameWaiter : MonoBehaviour
     }
 
     /// <summary>
+    /// Clear information 
+    /// </summary>
+    public static void RestoreGlobalState()
+    {
+        gameOver = false;
+        won = false;
+    }
+
+    /// <summary>
     /// True if the game is over
     /// </summary>
     /// <returns></returns>

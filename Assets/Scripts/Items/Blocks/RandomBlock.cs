@@ -47,6 +47,9 @@ public class RandomBlock : MonoBehaviour
             randomPrefab = standartBlockPrefab;
 
         //Create new object from randomPrefab
-        Instantiate(randomPrefab, transform.position, Quaternion.identity);
+        var NewBlokc = Instantiate(randomPrefab, transform.position, Quaternion.identity);
+
+        //Save the local scale of original random block
+        NewBlokc.transform.localScale = gameObject.transform.localScale;
     }
 }

@@ -5,5 +5,6 @@
     Help,
     Exit,
     MainMenu,
-    Resume
+    Resume,
+    Restart
 }

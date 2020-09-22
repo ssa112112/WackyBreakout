@@ -7,7 +7,9 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField]
     GameObject paddlePrefab;
     [SerializeField]
-    GameObject BlockPrefab;
+    GameObject blockPrefab;
+    [SerializeField]
+    GameObject gearFromBlocksPrefab;
 
     float blockHeight;
     float blockWidth;
@@ -16,6 +18,7 @@ public class LevelBuilder : MonoBehaviour
     float distanceBetweenBlocksInProcents = 0.2f; //[0f...1f]
     float distanceFromTopInProcents = 0.1f; //[0f...1f]
     static int amountBlocksInStart; //autocalculate
+    public static bool IsGearLevel; 
 
     public static int AmountBlocksInStart
     {
@@ -25,9 +28,23 @@ public class LevelBuilder : MonoBehaviour
 
     void Awake()
     {
-        SaveShapeOfBlock();
+
+        //Create paddle
         Instantiate(paddlePrefab);
-        CreateBlocks();
+
+        //Create blocks
+        if (!IsGearLevel)
+        {
+            SaveShapeOfBlock();
+            CreateBlocks();
+        }
+        else
+        {
+            Instantiate(gearFromBlocksPrefab);
+            amountBlocksInStart = GameObject.FindGameObjectsWithTag("Block").Length;
+        }
+
+        //Balls will be created BallSpawner
     }
 
     /// <summary>
@@ -35,7 +52,7 @@ public class LevelBuilder : MonoBehaviour
     /// </summary>
     private void SaveShapeOfBlock()
     {
-        var tempBlock = Instantiate(BlockPrefab);
+        var tempBlock = Instantiate(blockPrefab);
         var tempBlockCollider = tempBlock.GetComponent<BoxCollider2D>();
         blockHeight = tempBlockCollider.size.y;
         blockWidth = tempBlockCollider.size.x;
@@ -65,7 +82,7 @@ public class LevelBuilder : MonoBehaviour
         {
             for (var indexBlockInRow = 0; indexBlockInRow < blocksInRow; indexBlockInRow++)
             {
-                Instantiate(BlockPrefab, currentPlaceSpawn, Quaternion.identity);
+                Instantiate(blockPrefab, currentPlaceSpawn, Quaternion.identity);
                 currentPlaceSpawn.x += blockWidthAndDistanceBetween;
             }
             currentPlaceSpawn.x = startPositionX;

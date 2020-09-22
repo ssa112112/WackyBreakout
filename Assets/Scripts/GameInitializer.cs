@@ -12,5 +12,6 @@ public class GameInitializer : MonoBehaviour
         if (!ConfigurationUtils.IsInitialized()) ConfigurationUtils.Initialize();
         if (!AudioManager.IsInitialized()) AudioManager.Initialize();
         EventsManager.Clear();
+        EndGameWaiter.RestoreGlobalState();
     }
 }

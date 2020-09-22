@@ -334,7 +334,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddlePrefab: {fileID: 253674716231704191, guid: d125f6ad217d6164e95cc7f728d27f83,
     type: 3}
-  BlockPrefab: {fileID: 868004207770328213, guid: 755bf8c319fe694459b5e0ed792ed742,
+  blockPrefab: {fileID: 868004207770328213, guid: 755bf8c319fe694459b5e0ed792ed742,
+    type: 3}
+  gearFromBlocksPrefab: {fileID: 7760519754964848250, guid: 3fe5c5cf9f95a9e47bf4936581b6345b,
     type: 3}
 --- !u!114 &354682813
 MonoBehaviour:
