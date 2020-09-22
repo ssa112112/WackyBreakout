@@ -22,7 +22,7 @@ public class PauseWaiter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !EndGameWaiter.IsGameOver())
             if (pauseMod == false)
             {
                 pauseMod = true;
