@@ -1,11 +1,6 @@
-DELETE SIMMER.IO FROM TEMPLATE
-
 Add level with a write "GEAR GEAMS" from blocks. 
 
 ? Animation for freezenEffect
 ? Particles system for destroying blocks
 
-
 ? Add icons to menubuttoms
-
-updated to Asset Database Vercsion 2 and Unity 2019.4.9f1
