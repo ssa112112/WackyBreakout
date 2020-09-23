@@ -9,7 +9,7 @@ public class SpeedupBlock : Block
     float speedupEffectForce;
 
     //AnimationSpeed
-    const float animationSpeed = 0.016f;
+    const float animationSpeed = 0.018f;
 
     protected override void Start()
     {

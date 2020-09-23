@@ -1,4 +1,3 @@
-? Animation for freezenEffect
 ? Particles system for destroying blocks
-
+? Add restoring damaged setting.csv
 ? Add icons to menubuttoms

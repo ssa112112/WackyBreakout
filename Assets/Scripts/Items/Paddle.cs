@@ -17,9 +17,11 @@ public class Paddle : MonoBehaviour
 
     //Support with freezen effect
     UFloat timeToUnfrozen;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         frozenPositionY = rb2d.position.y;
         colliderWidthHalf = GetComponent<CapsuleCollider2D>().size.x / 2;
@@ -55,6 +57,12 @@ public class Paddle : MonoBehaviour
             timeToUnfrozen -= (UFloat)Time.fixedUnscaledDeltaTime;
             if (timeToUnfrozen == 0)
                 AudioManager.Play(AudioName.EffectFreezerDeactivated);
+
+            //Activate the animation for unfreezing
+            if (timeToUnfrozen < 0.5f) //0.5f it's the current duration of the animation
+            {
+                animator.SetBool("IsFreezing", false);
+            }
         }
     }
 
@@ -96,5 +104,8 @@ public class Paddle : MonoBehaviour
     private void FreezerEffectActivated(float freezerEffectDuration)
     {
         timeToUnfrozen += (UFloat)freezerEffectDuration;
+
+        //Activate the animation for freezing
+        animator.SetBool("IsFreezing",true);
     }
 }
